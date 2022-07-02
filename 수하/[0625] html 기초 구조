@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <link rel="stylesheet" href="style.css">  
+  <title>Document</title>
+ </head>
+
+ <body>
+  <h1> my first heading </h1>
+  <p class="color-primary"> i am first </p>
+  <p class="color-primary font-50"> i am second </p>
+  <button type="button" onclick="javascript:alert('click button!!');">click</button>
+  <img width="200px"
+  src = "http://t1.daumcdn.net/friends/prod/editor/dc8b3d02-a15a-4afa-a88b-989cf2a50476.jpg" />
+ </body>
+</html>
