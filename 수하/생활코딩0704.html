@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1><a href="index.html">WEB</a></h1>
+   
+    <input type="button" value="night" onclick="
+    var target = document.querySelector('body'); //target으로 치환
+    if(this.value === 'night'){  //document.querySelector('#night_day') 를 this로, 위 id도 지움
+        target.style.backgroundColor = 'black';
+        target.style.color = 'white';
+        this.value = 'day'; 
+    } else{
+        target.style.backgroundColor = 'white';
+        target.style.color = 'black';
+        this.value = 'night';
+    }
+    ">
+
+    <ol>
+        <li><a href="1.html">html</a></li>
+        <li><a href="2.html">css</a></li>
+        <li><a href="3.html">javaScript</a></li>
+    </ol>
+
+    
+</body>
+</html>
