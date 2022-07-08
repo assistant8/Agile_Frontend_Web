@@ -1,0 +1,18 @@
+function Item(title, price) {
+    //this = {};
+    this.title = title;
+    this.price = price;
+    this.showPrice = function(){
+        console.log(`가격은 ${price}원`);
+    }
+
+    //return this;
+
+}
+
+const item1 = new Item("t11", 200);
+const item2 = new Item("t2", 300);
+
+console.log(item1, item2);
+
+item1.showPrice();
