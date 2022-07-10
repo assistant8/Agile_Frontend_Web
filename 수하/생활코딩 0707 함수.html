@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function sum2(left, right) {return left+right;} //함수 사용 예시
+        //함수 리턴받은 걸로 스타일 조정가능
+        document.write('<div style="color:red">'+sum2(1,2)+'</div>'+'<br>');
+
+        //객체 만드는 예시, 객체 내 변수는 property, 함수는 method
+        var c = {
+            "teacher":"aaa",
+            "customer":"me"
+        };
+        
+        //객체 값 불러오기
+        document.write(c.teacher+'<br>');
+        c.person = "someone";
+        document.write(c.person+'<br>');
+
+        //객체명 띄어쓰기 있을 땐 이렇게
+        c["people a"]="someone2";
+        document.write(c["people a"]+'<br>'+'<br>');
+
+
+        document.write("1"+'<br>');
+        //객체 내 키값과 값 다 출력
+        for(var key in c)
+        {
+            document.write(key +':'+ c[key]+'<br>'); //c.key는 왜 안될까 - 따옴표 때문인거같다
+        }
+
+        document.write("2"+'<br>');
+        //function showall() 과 같은 기능, c 안에 있는 함수(메소드)일 뿐
+        c.showall = function() {
+            for(var key in this) //c=>this (객체 이름 바뀔거 대비)
+            {
+                document.write(key +':'+ this[key]+'<br>'); //c.key는 왜 안될까
+            }
+        }
+        c.showall();
+    </script>
+</body>
+</html>
