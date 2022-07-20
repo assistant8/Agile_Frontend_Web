@@ -1,7 +1,31 @@
-const h1 = document.querySelector("div.hello:first-child h1");
+const loginForm = document.querySelector("#login-form");
+const loginInput = document.querySelector("#login-form input");
+const greeting = document.querySelector("#greeting");
 
-function handleTitleClick(){    
-    h1.classList.toggle("clicked");
+const HIDDEN_CLASSNAME = "hidden";
+const USERNAME_KEY = "username";
+
+function onLoginSubmit(event) {
+  event.preventDefault();
+  const username = loginInput.value;
+  //localstorage에 저장
+  localStorage.setItem(USERNAME_KEY, username);
+
+  loginForm.classList.add("hidden");
+  paintGreetings(username);
 }
 
-h1.addEventListener("click",handleTitleClick); //()를 넣어서 바로 실행시키지 않는다
+function paintGreetings(username) {
+  greeting.innerText = `Hello ${username}`;
+  greeting.classList.remove(HIDDEN_CLASSNAME);
+}
+
+const savedUsername = localStorage.getItem(USERNAME_KEY);
+if (savedUsername == null) {
+  //show the form
+  loginForm.classList.remove(HIDDEN_CLASSNAME);
+  loginForm.addEventListener("submit", onLoginSubmit);
+} else {
+  //show the greetings
+  paintGreetings(savedUsername);
+}
