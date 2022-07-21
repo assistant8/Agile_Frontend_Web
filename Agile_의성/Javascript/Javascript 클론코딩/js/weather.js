@@ -17,5 +17,5 @@ function onGeoOk(position) {
 function onGeoError() {
   alert("cant fint you");
 }
-////
+/////
 navigator.geolocation.getCurrentPosition(onGeoOk, onGeoError);
