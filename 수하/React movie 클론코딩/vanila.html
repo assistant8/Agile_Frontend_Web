@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id ="root"></div>
+</body>
+<script src = https://unpkg.com/react@17.0.2/umd/react.production.min.js></script>
+<script src="https://unpkg.com/react-dom@17.0.2/umd/react-dom.production.min.js"></script>
+<script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+<script type="text/babel">
+    const root = document.getElementById("root")
+
+    //직접 만드는 요소는 전부 대문자로 시작해야함
+    const Title = () => ( //() => 적어서 함수로 만듦, 콘테이너에 넣기 위해
+        <h3 id="title" onMouseEnter={() => console.log("mouse enter")}>
+            Hello, title 
+        </h3>
+    )
+
+    const Button = () => (
+        <button 
+            id="button"
+            style={{
+                backgroundColor : "tomato",
+            }}
+            onClick={() => null}>
+            click me
+        </button>
+
+    )
+
+    //위와 다를게 없음
+    //두개의 컴포넌트를 div 안에 넣어주는 것
+    const Container = () => ( //여기서 title button은 처음이 대문자여야 여기 있는 것임을 뜻함
+        <div>
+            <Title />
+            <Button />
+        </div>
+    )
+
+    //콘테이너도 내가만든 컴포넌트 이므로
+    ReactDOM.render(<Container/>, root);
+
+</script>
+</html>
