@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <div id="root"></div>
+  </body>
+  <script src="https://unpkg.com/react@17.0.2/umd/react.production.min.js"></script>
+  <!-- 애플리케이션 interactive 하게만들어주는 라이브러리 -->
+  <script src="https://unpkg.com/react-dom@17.0.2/umd/react-dom.production.min.js"></script>
+  <!-- 모든 react element들을 html body에 둘수있게 해줌 -->
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <script type="text/babel">
+    const root = document.getElementById("root");
+
+    function MinutesToHours() {
+      const [variable, Variablemodifier] = React.useState();
+      const [flip, flipModifier] = React.useState(false);
+      const onChange = (event) => {
+        console.log(event.target.value);
+        // variable = event.target.value;
+        Variablemodifier((current) => event.target.value);
+      };
+      const onClickReset = () => {
+        Variablemodifier((current) => 0);
+        console.log(variable);
+      };
+      const onClickFlip = () => {
+        onClickReset();
+        flipModifier((current) => !current);
+      };
+      return (
+        <div>
+          <div>
+            <label htmlFor="miles">Minutes : </label>
+            <input
+              value={flip ? variable * 60 : variable}
+              id="miles"
+              onChange={onChange}
+              placeholder="Minutes"
+              type="number"
+              disabled={flip === true}
+            ></input>
+          </div>
+          <div>
+            <label htmlFor="hours">Hours : </label>
+            <input
+              value={flip ? variable : variable / 60}
+              id="hours"
+              onChange={onChange}
+              placeholder="hours"
+              type="number"
+              disabled={flip === false}
+            ></input>
+          </div>
+          <button onClick={onClickReset}>Reset</button>
+          <button onClick={onClickFlip}>{flip ? "Turn back" : "Flip"}</button>
+        </div>
+      );
+    }
+    function KmToMiles() {
+      const [variable, Variablemodifier] = React.useState();
+      const [flip, flipModifier] = React.useState(false);
+      const onChange = (event) => {
+        console.log(event.target.value);
+        // variable = event.target.value;
+        Variablemodifier((current) => event.target.value);
+      };
+      const onClickReset = () => {
+        Variablemodifier((current) => 0);
+        console.log(variable);
+      };
+      const onClickFlip = () => {
+        onClickReset();
+        flipModifier((current) => !current);
+      };
+      return (
+        <div>
+          <div>
+            <label htmlFor="miles">miles : </label>
+            <input
+              value={flip ? variable * 1000 : variable}
+              id="miles"
+              onChange={onChange}
+              placeholder="miles"
+              type="number"
+              disabled={flip === true}
+            ></input>
+          </div>
+          <div>
+            <label htmlFor="KM">KM : </label>
+            <input
+              value={flip ? variable : variable / 1000}
+              id="KM"
+              onChange={onChange}
+              placeholder="KM"
+              type="number"
+              disabled={flip === false}
+            ></input>
+          </div>
+          <button onClick={onClickReset}>Reset</button>
+          <button onClick={onClickFlip}>{flip ? "Turn back" : "Flip"}</button>
+        </div>
+      );
+    }
+    function App() {
+      const [index, indexModifier] = React.useState("xx");
+
+      const onChangeSelect = (event) => {
+        indexModifier((current) => event.target.value);
+      };
+      return (
+        <div>
+          <h1>Super Converter</h1>
+          <select value={index} onChange={onChangeSelect}>
+            <option value="xx">Select your units</option>
+            <option value="0">Minutes & Hours</option>
+            <option value="1">Km & Miles</option>
+          </select>
+          {index === "0" ? <MinutesToHours /> : null}
+          {index === "1" ? <KmToMiles /> : null}
+        </div>
+      );
+    }
+
+    function render() {
+      ReactDOM.render(<App />, root);
+    }
+    render();
+  </script>
+</html>
