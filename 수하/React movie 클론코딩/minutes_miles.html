@@ -14,7 +14,7 @@
 <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
 <script type="text/babel"> 
     const root = document.getElementById("root")
-
+ 
     function MinutesToHours() { 
         const [amount, setAmount] = React.useState(0)
         const [flipped, setFlipped] = React.useState(false)
@@ -110,7 +110,7 @@
     function App() { 
         const [index, setIndex] = React.useState("0")
         const onSelect = (event) => {
-            setIndex(event.target.value)
+            setIndex(event.target.value);
         }
     
         return (
