@@ -8,8 +8,6 @@
 
 // loginButton.addEventListener("click", loginClickHandler)
 
-
-
 const loginForm = document.querySelector("#login-form");
 const loginInput = document.querySelector("#login-form input");
 const link = document.querySelector("a");

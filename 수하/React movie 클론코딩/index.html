@@ -22,7 +22,7 @@
         </h3>
     )
 
-    const Button = () => (
+    const Button = () => {(
         <button 
             id="button"
             style={{
@@ -32,7 +32,7 @@
             click me
         </button>
 
-    )
+    )}
 
     //위와 다를게 없음
     //두개의 컴포넌트를 div 안에 넣어주는 것
@@ -46,5 +46,6 @@
     //콘테이너도 내가만든 컴포넌트 이므로
     ReactDOM.render(<Container/>, root);
 
+    
 </script>
 </html>
